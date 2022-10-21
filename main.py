@@ -41,9 +41,9 @@ def clean_text(text):
     text = [wn.lemmatize(word) for word in tokens if word not in words.words()]
     return text
 
-@app.get('/home')
-async def get_started(name: str):
-    return f"API is running!"
+@app.get ("/")
+def index():
+    return {'API Running'}
 
 
 
