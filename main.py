@@ -1,6 +1,5 @@
 import string
 from fastapi import FastAPI
-import tensorflow as tf
 from pydantic import BaseModel
 from sklearn.feature_extraction.text import TfidfVectorizer
 import re
