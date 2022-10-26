@@ -22,7 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+nltk.download('words')
 
 classifier = open("DACT_Classfication.model", "rb")
 model = pickle.load(classifier)
