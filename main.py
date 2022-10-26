@@ -9,8 +9,20 @@ import numpy as np
 import pickle
 import pandas as pd
 import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 
+origins = ["*"]
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 
 classifier = open("DACT_Classfication.model", "rb")
 model = pickle.load(classifier)
@@ -65,3 +77,4 @@ async def post_question(question: str):
 
 if __name__ == '__main__':
     uvicorn.run(app, host= '127.0.0.1', port= 8000)
+
